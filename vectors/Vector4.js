@@ -4,3 +4,7 @@ Vectors.Vector4 = function(x, y, z, w){
 	this.z = z;
 	this.w = w;
 };
+
+Vectors.Vector4.prototype.toString = function(){
+	return '(' + this.x + ', ' + this.y + ', ' + this.z + ', ' + this.w + ')';
+};
