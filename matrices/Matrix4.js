@@ -92,6 +92,9 @@ Matrices.Matrix4.prototype.substract = function(other, dest){
 	if(dest === undefined){
 		dest = this;
 	}
+	if(dest === null){
+		dest = new Matrices.Matrix4();
+	}
 	dest.m00 = this.m00 - other.m00;
 	dest.m01 = this.m01 - other.m01;
 	dest.m02 = this.m02 - other.m02;
