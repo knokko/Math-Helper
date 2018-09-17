@@ -32,5 +32,14 @@ const Matrices = {
 	},
 	createCameraMatrix : function(fov, nearPlane, farPlane, width, height, x, y, z, pitch, yaw, roll){
 		return Matrices.createProjectionMatrix(fov, nearPlane, farPlane, width, height).multiply(Matrices.createViewMatrix(x, y, z, pitch, yaw, roll));
+	},
+	createTransformationMatrix : function(x, y, z, pitch, yaw, roll){
+		const matrix = new Matrices.Matrix4();
+		matrix.setIdentity();
+		matrix.translate(new Vectors.Vector3(x, y, z));
+		if(pitch) matrix.rotate(pitch, Vectors.AXIS_X);
+		if(yaw) matrix.rotate(yaw, Vectors.AXIS_Y);
+		if(roll) matrix.rotate(roll, Vectors.AXIS_Z);
+		return matrix;
 	}
 };
